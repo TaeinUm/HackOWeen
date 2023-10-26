@@ -1,10 +1,14 @@
 import {View, Text, StyleSheet} from "react-native";
+import PinThread from "./PinThread";
 
 
 export default function Home() {
   return(
     <View style={styles.container}>
-      <Text>Home</Text>
+      {/*<PinThread/>*/}
+      <View style={{flex:1, backgroundColor:'red'}}>
+        <Text>123</Text>
+      </View>
     </View>
   )
 }
@@ -12,8 +16,12 @@ export default function Home() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    display:'flex',
+    position:'absolute',
+    width:'100%',
+    height:'100%',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#fff',
   },
 });
