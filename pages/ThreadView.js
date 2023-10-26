@@ -1,7 +1,7 @@
 import {View, Text, StyleSheet} from "react-native";
 
 
-export default function Threads() {
+export default function ThreadView() {
   return (
     <View style={styles.container}>
       <Text>
