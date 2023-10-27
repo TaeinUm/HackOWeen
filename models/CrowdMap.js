@@ -15,6 +15,6 @@ const crowdMapSchema = new mongoose.Schema({
   }
 });
 
-const CrowdMap = mongoose.model('CrowdMap', crowdMapSchema);
+const CrowdMap = mongoose.model('CrowdMap', crowdMapSchema, 'crowd_map');
 
 module.exports = CrowdMap;
