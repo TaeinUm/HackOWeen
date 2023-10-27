@@ -1,21 +1,11 @@
 import {Suspense} from 'react'
 import {View, Text, StyleSheet, SafeAreaView} from "react-native";
 import {Box, ScrollView} from "native-base";
-import {useRecoilValue} from "recoil";
-import {allThreadsAtom} from "../recoil/state";
 import ThreadItem from "./ThreadItem";
 
 
-export default function ThreadViewWrapper() {
-  return (
-    <Suspense fallback={<View style={styles.container}/>}>
-      <ThreadView/>
-    </Suspense>
-  )
-}
 
-function ThreadView() {
-  const threads = useRecoilValue(allThreadsAtom);
+export default function ThreadView({threads}) {
 
   return (
     <SafeAreaView style={styles.container}>
@@ -25,7 +15,7 @@ function ThreadView() {
       <View style={{flex:1, width:'100%', paddingLeft:20, paddingRight:20}}>
         <ScrollView>
           {
-            threads.map((thread) => (<ThreadItem key={thread.timestamp} thread={thread}/>))
+            threads.map((thread) => (<ThreadItem key={thread.id} thread={thread}/>))
           }
         </ScrollView>
       </View>
