@@ -4,6 +4,7 @@ import styled from "styled-components/native";
 import {windowWidth} from "../util/util";
 import React, {useEffect, useState} from "react";
 import * as Location from 'expo-location';
+import {createThread} from "../api/api";
 
 
 export default function NewThreadModal({setState}) {
@@ -22,8 +23,10 @@ export default function NewThreadModal({setState}) {
     })();
   }, []);
   function handleButtonPress() {
-    console.log(thread, location)
-    // You can use 'inputText' as needed for submission
+    createThread({
+      thread: thread,
+      ...location,
+    }).then()
   }
 
   return (

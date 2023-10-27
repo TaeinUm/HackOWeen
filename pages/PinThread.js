@@ -42,12 +42,11 @@ export default function PinThread({threads, setState}) {
                 <AntDesign onPress={() => setState(false)} name={"closecircle"} size={20} color={'#818181'}/>
               </Box>
             </View>
-            {/*<Divider style={{flex:0, backgroundColor:'#676767'}}/>*/}
             <View style={{paddingLeft:20, paddingRight:20}}>
               <ScrollView>
                 {
                   threads.map((thread) => (
-                    <ThreadItem thread={thread}/>
+                    <ThreadItem thread={thread} key={thread.timestamp}/>
                   ))
                 }
                 <View style={{height: 90}}></View>

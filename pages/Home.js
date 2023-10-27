@@ -1,13 +1,24 @@
 import {View, Button, SafeAreaView, StyleSheet, Text} from "react-native";
 import PinThread from "./PinThread";
-import {useState, Component} from "react";
-import {getThreadsByLocation} from "../api/api";
+import {useState, Component, Suspense} from "react";
+import {getAllThreads, getThreadsByLocation} from "../api/api";
 import MapView from "react-native-map-clustering";
 import {Marker} from 'react-native-maps';
+import {allThreadsAtom} from "../recoil/state";
+import {useRecoilState} from "recoil";
 
-export default function Home() {
+
+export default function HomeWrapper() {
+  return (
+    <Suspense fallback={<View/>}>
+      <Home/>
+    </Suspense>
+  )
+}
+
+function Home() {
   const [showPinThread, setShowPinThread] = useState(false)
-  const [selectedThreads, setSelectedThreads] = useState([])
+  const [allThreads, setAllThreads] = useRecoilState(allThreadsAtom)
   const [markers, setMarkers] = useState([{
     latitude: 40.7128,
     longitude: -74.006,
@@ -24,8 +35,6 @@ export default function Home() {
   }
 
   async function handleOnPinClick() {
-    const threads = await getThreadsByLocation("")
-    setSelectedThreads(threads)
     setShowPinThread(!showPinThread)
   }
 
@@ -45,14 +54,13 @@ export default function Home() {
 
   return (
     <View style={styles.container}>
-      {showPinThread && <PinThread threads={selectedThreads} setState={setShowPinThread}/>}
+      {showPinThread && <PinThread threads={allThreads} setState={setShowPinThread}/>}
       <View style={{position: 'absolute', height: 100, width: 100, top: 50, zIndex: 100, backgroundColor: 'white'}}>
         <Button title={"Temp Pin"} onPress={handleOnPinClick}></Button>
       </View>
       <MapView style={styles.map} initialRegion={state.mapRegion}>
         {renderRandomMarkers(144)}
       </MapView>
-
     </View>
   )
 }

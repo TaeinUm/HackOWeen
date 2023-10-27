@@ -8,7 +8,7 @@ import ThreadItem from "./ThreadItem";
 
 export default function ThreadViewWrapper() {
   return (
-    <Suspense fallback={<Text>Loading..</Text>}>
+    <Suspense fallback={<View style={styles.container}/>}>
       <ThreadView/>
     </Suspense>
   )
@@ -25,7 +25,7 @@ function ThreadView() {
       <View style={{flex:1, width:'100%', paddingLeft:20, paddingRight:20}}>
         <ScrollView>
           {
-            threads.map((thread) => (<ThreadItem key={thread.time} thread={thread}/>))
+            threads.map((thread) => (<ThreadItem key={thread.timestamp} thread={thread}/>))
           }
         </ScrollView>
       </View>

@@ -1,6 +1,6 @@
 import {thread_samples} from "../thread_samples";
 
-const server_uri = ""
+const server_uri = "https://port-0-hackoween-12fhqa2llo90vewx.sel5.cloudtype.app"
 
 export async function getThreadsByLocation(location) {
   return thread_samples;
@@ -22,15 +22,12 @@ export async function createThread(thread) {
   return await response.json();
 }
 
-export async function getAllThreads(thread) {
-  return thread_samples
+export async function getAllThreads() {
   const response = await fetch(`${server_uri}/api/comments`, {
     method: "GET",
   })
   return await response.json();
 }
-
-
 
 //
 // {
