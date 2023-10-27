@@ -4,6 +4,6 @@ const express = require('express');
 const router = express.Router();
 const crowdMapController = require('../controllers/crowdmapController');
 
-router.get('/crowd-map', crowdMapController.getCrowdMapData);
+router.get('/', crowdMapController.getCrowdMapData);
 
 module.exports = router;
