@@ -5,9 +5,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
-const crowdMapRoutes = require('./routes/crowdmaps');
-
-app.use('/api', crowdMapRoutes);
 
 // Enable CORS for client-side
 app.use(cors());
@@ -32,6 +29,10 @@ app.use('/api/comments', commentRoutes);
 // Use User Routes
 const userRoutes = require('./routes/users');
 app.use('/api/users', userRoutes);
+
+// Use Crowd Map Routes
+const crowdMapRoutes = require('./routes/crowdmaps');
+app.use('/api/crowd-map', crowdMapRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
