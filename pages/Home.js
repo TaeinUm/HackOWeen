@@ -1,4 +1,4 @@
-import {View, Button, SafeAreaView, StyleSheet} from "react-native";
+import {View, Button, SafeAreaView, StyleSheet, Text} from "react-native";
 import PinThread from "./PinThread";
 import {useState} from "react";
 import {getThreadsByLocation} from "../api/api";
@@ -25,26 +25,21 @@ export default function Home() {
   }
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Button title={"Show Pin"} onPress={handleOnPinClick} ></Button>
-      <View style={{flex:1, width:'100%'}}>
-        {showPinThread && <PinThread threads={selectedThreads} setState={setShowPinThread}/>}
+    <View style={styles.container}>
+      {showPinThread && <PinThread threads={selectedThreads} setState={setShowPinThread}/>}
+      <View style={{position:'absolute', height:100, width:100, top:50, zIndex:100, backgroundColor:'white'}}>
+        <Button title={"Temp Pin"} onPress={handleOnPinClick}></Button>
       </View>
-      {/*<View style={{flex:1}}>*/}
-      {/*  <View style={styles.container}>*/}
-      {/*    <MapView*/}
-      {/*      style={styles.map}*/}
-      {/*      initialRegion={state.mapRegion}*/}
-      {/*    />*/}
-      {/*  </View>*/}
-      {/*</View>*/}
-    </SafeAreaView>
+      <MapView
+        style={styles.map}
+        initialRegion={state.mapRegion}
+      />
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    display:'flex',
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
