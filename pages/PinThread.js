@@ -1,30 +1,52 @@
 import React, { useCallback, useMemo, useRef } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import {View, Text, StyleSheet, Button} from 'react-native';
 import BottomSheet from '@gorhom/bottom-sheet';
+import {Box, Divider, ScrollView} from "native-base";
+import {AntDesign} from "@expo/vector-icons";
+import ThreadItem from "./ThreadItem";
 
-export default function PinThread() {
+export default function PinThread({threads, setState}) {
   // ref
   const bottomSheetRef = useRef(null);
 
   // variables
-  const snapPoints = useMemo(() => ['25%', '50%'], []);
+  const snapPoints = useMemo(() => ['25%', '70%'], []);
 
   // callbacks
   const handleSheetChanges = useCallback((index) => {
     console.log('handleSheetChanges', index);
   }, []);
 
+
   // renders
   return (
     <View style={styles.container}>
       <BottomSheet
         ref={bottomSheetRef}
-        index={1}
+        index={0}
         snapPoints={snapPoints}
         onChange={handleSheetChanges}
+        handleIndicatorStyle={{backgroundColor:'#676767'}}
+        backgroundStyle={{backgroundColor:'#17171a'}}
       >
-        <View style={styles.contentContainer}>
-          <Text>Awesome 🎉</Text>
+        <View style={{display:'flex', flex: 1}}>
+          <View style={{...styles.shadow, display:'flex', flex:0, flexDirection:'row', justifyContent:'center'}}>
+            <Text style={{flex:1, marginBottom:20, marginLeft:20, marginRight:20, textAlign:'left', color:'white', fontWeight:'700', fontSize:20}}>Threads</Text>
+            <Box style={{flex:0, marginRight:20}}>
+              <AntDesign onPress={() => setState(false)} name={"closecircle"} size={20} color={'#818181'}/>
+            </Box>
+          </View>
+          {/*<Divider style={{flex:0, backgroundColor:'#676767'}}/>*/}
+          <View style={{paddingLeft:20, paddingRight:20}}>
+            <ScrollView>
+              {
+                threads.map((thread) => (
+                  <ThreadItem thread={thread}/>
+                ))
+              }
+              <View style={{height: 90}}></View>
+            </ScrollView>
+          </View>
         </View>
       </BottomSheet>
     </View>
@@ -34,11 +56,21 @@ export default function PinThread() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 0,
-    backgroundColor: 'grey',
+    padding: 10,
   },
   contentContainer: {
     flex: 1,
     alignItems: 'center',
+  },
+  shadow: {
+    backgroundColor: '#17171a',
+    shadowColor: 'rgba(0,0,0,0.9)',
+    shadowOffset: {
+      width: 0,
+      height: 20,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
   },
 });
