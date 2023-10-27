@@ -30,6 +30,13 @@ export async function getAllThreads(thread) {
   return await response.json();
 }
 
+export async function getAllMarkers(){
+  const response = await fetch(`${server_uri}/api/crowd-map`, {
+    method: "GET",
+  })
+  return await response.json();
+}
+
 
 
 //

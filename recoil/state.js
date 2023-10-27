@@ -1,5 +1,5 @@
 import {atom, selector, selectorFamily} from "recoil";
-import {getAllThreads} from "../api/api";
+import {getAllMarkers, getAllThreads} from "../api/api";
 
 
 export const selectedPinAtom = atom({
@@ -18,6 +18,16 @@ export const allThreadsAtom = atom({
     key: 'allThreadsAtom/Default',
     get: async () => {
       return await getAllThreads()
+    },
+  })
+})
+
+export const allMarkersAtom = atom({
+  key: 'allMarkerAtom',
+  default: selector({
+    key: 'allMarkersAtom/Default',
+    get: async () => {
+      return await getAllMarkers()
     },
   })
 })
