@@ -1,13 +1,20 @@
 import {View, Button, SafeAreaView, StyleSheet} from "react-native";
 import PinThread from "./PinThread";
-import {useState} from "react";
+import {useState, Component} from "react";
 import {getThreadsByLocation} from "../api/api";
-import MapView from 'react-native-maps';
+import MapView from "react-native-map-clustering";
+import {Marker} from 'react-native-maps';
 
 
 export default function Home() {
   const [showPinThread, setShowPinThread] = useState(false)
   const [selectedThreads, setSelectedThreads] = useState([])
+  const [markers, setMarkers] = useState([{
+    latitude: 40.7128,
+    longitude: -74.006,
+    title: "marker1",
+    description: "marker",
+  }])
 
   let state = {
     mapRegion: {
@@ -24,21 +31,31 @@ export default function Home() {
     setShowPinThread(!showPinThread)
   }
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <Button title={"Show Pin"} onPress={handleOnPinClick} ></Button>
-      <View style={{flex:1, width:'100%'}}>
-        {showPinThread && <PinThread threads={selectedThreads} setState={setShowPinThread}/>}
+
+  function renderRandomMarkers(n) {
+    const { latitude, longitude, latitudeDelta, longitudeDelta } = state.mapRegion;
+    return new Array(n).fill().map((x, i) => (
+      <Marker
+        key={i}
+        coordinate={{
+          latitude: latitude + (Math.random() - 0.5) * latitudeDelta,
+          longitude: longitude + (Math.random() - 0.5) * longitudeDelta
+        }}
+      />
+    ));
+  }
+
+  return(
+    <View style={{flex:1}}>
+      <View style={styles.container}>
+        <MapView
+          style={styles.map}
+          initialRegion={state.mapRegion}
+        >
+          {renderRandomMarkers(144)}
+        </MapView>
       </View>
-      {/*<View style={{flex:1}}>*/}
-      {/*  <View style={styles.container}>*/}
-      {/*    <MapView*/}
-      {/*      style={styles.map}*/}
-      {/*      initialRegion={state.mapRegion}*/}
-      {/*    />*/}
-      {/*  </View>*/}
-      {/*</View>*/}
-    </SafeAreaView>
+    </View>
   )
 }
 
