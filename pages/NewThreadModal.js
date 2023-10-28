@@ -5,11 +5,14 @@ import {windowWidth} from "../util/util";
 import React, {useEffect, useState} from "react";
 import * as Location from 'expo-location';
 import {createThread} from "../api/api";
+import {reloadAllThreadsAtom} from "../recoil/state";
+import {useRecoilState} from "recoil";
 
 
 export default function NewThreadModal({setState}) {
   const [thread, setThread] = useState("")
   const [location, setLocation] = useState(null);
+  const [reloadAllThreads, setReloadAllThreads] = useRecoilState(reloadAllThreadsAtom);
 
   useEffect(() => {
     (async () => {
@@ -26,7 +29,10 @@ export default function NewThreadModal({setState}) {
     createThread({
       thread: thread,
       ...location,
-    }).then()
+    }).then(() => {
+      setReloadAllThreads(reloadAllThreads + 1)
+    })
+    setState(false)
   }
 
   return (

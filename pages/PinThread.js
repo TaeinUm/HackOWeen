@@ -6,24 +6,15 @@ import {AntDesign} from "@expo/vector-icons";
 import ThreadItem from "./ThreadItem";
 
 export default function PinThread({threads, setState}) {
-  // ref
   const bottomSheetRef = useRef(null);
 
-  // variables
   const snapPoints = useMemo(() => ['25%', '70%'], []);
 
-  // callbacks
   const handleSheetChanges = useCallback((index) => {
     console.log('handleSheetChanges', index);
   }, []);
 
-  const renderBackdrop = useCallback(
-    (props) => <BottomSheetBackdrop {...props} />,
-    []
-  );
 
-
-  // renders
   return (
     <View style={{position:'absolute', width:'100%', height:'100%', bottom:0, zIndex:100}}>
       <View style={{flex:1, padding: 10, pointerEvents: 'auto'}}>
@@ -47,6 +38,7 @@ export default function PinThread({threads, setState}) {
                 {
                   threads.map((thread) => (
                     <ThreadItem thread={thread} key={thread._id}/>
+
                   ))
                 }
                 <View style={{height: 90}}></View>

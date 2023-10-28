@@ -2,6 +2,7 @@ import {atom, selector, selectorFamily} from "recoil";
 import {getAllMarkers, getAllThreads} from "../api/api";
 
 
+
 export const selectedPinAtom = atom({
   key: 'selectedPinAtom',
   default: ""
