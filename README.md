@@ -11,16 +11,11 @@
   <h3 align="center">WatchNY</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    Find out what is going on NEAR by you!
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/yongshn220/WatchNY_frontend"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
   </p>
 </div>
 
@@ -76,16 +71,11 @@ Use the `BLANK_README.md` to get started.
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+Front-end : React Native Expo
+Back-end : Node Express
 
-* [![Next][Next.js]][Next-url]
 * [![React][React.js]][React-url]
-* [![Vue][Vue.js]][Vue-url]
-* [![Angular][Angular.io]][Angular-url]
-* [![Svelte][Svelte.dev]][Svelte-url]
-* [![Laravel][Laravel.com]][Laravel-url]
-* [![Bootstrap][Bootstrap.com]][Bootstrap-url]
-* [![JQuery][JQuery.com]][JQuery-url]
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -94,12 +84,9 @@ This section should list any major frameworks/libraries used to bootstrap your p
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
+npm installation
 * npm
   ```sh
   npm install npm@latest -g
@@ -107,20 +94,17 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone git@github.com:yongshn220/WatchNY_frontend.git
    ```
-3. Install NPM packages
+2. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+4. Run the expo
+   ```sh
+   npm start
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
