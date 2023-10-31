@@ -31,8 +31,6 @@
 <br>Users can also make location-based comment so that others would know what is happening near us!</br>
 
 
-<br>Use the `BLANK_README.md` to get started.</br>
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
