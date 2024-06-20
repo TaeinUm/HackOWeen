@@ -5,7 +5,7 @@
 <br />
 <div align="center">
   <a href="https://near.org/">
-    <img src="front/images/building.png" alt="Logo" width="80" height="80">
+    <img src="front-end/images/building.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">WatchNY</h3>
