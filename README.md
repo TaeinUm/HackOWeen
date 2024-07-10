@@ -60,3 +60,5 @@
 <br>Yongjung Shin - yongshn220@gmail.com</br>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<a href="https://docs.google.com/document/d/1caYSOgZ1FjRQnL8xCXNIB1kHCB28aldCT_s8529xokI/edit#heading=h.mhnw87z1b7du"><strong>Relevant docs</strong></a>
