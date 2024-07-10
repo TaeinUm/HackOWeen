@@ -13,7 +13,7 @@
   <p align="center">
     Find out what is going on NEAR by you!
     <br />
-    <a href="https://github.com/yongshn220/WatchNY_frontend"><strong>Explore the docs »</strong></a>
+    <a href="https://taikai.network/hackbox/hackathons/HackoweenCivicTech"><strong>Check out the Website! »</strong></a>
     <br />
     <br />
   </p>
@@ -54,11 +54,9 @@
 <!-- CONTACT -->
 ## Contact
 
-<br>Taein Um - taeinum@gmail.com</br>
+<br>Taein Um - taeindev@gmail.com</br>
 <br>Juyoung Yun - juyoung.yun@stonybrook.edu</br>
 <br>Joseph Seo - sms021019@gmail.com</br>
 <br>Yongjung Shin - yongshn220@gmail.com</br>
-
-<br>Project Link: [https://github.com/yongshn220/WatchNY_frontend](https://github.com/your_username/repo_name)</br>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
